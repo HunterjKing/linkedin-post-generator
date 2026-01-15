@@ -175,29 +175,61 @@ async function downloadImage() {
         return;
     }
     
+    const downloadBtn = event.target;
+    const originalText = downloadBtn.textContent;
+    
     try {
-        const response = await fetch(generatedImageUrl);
+        downloadBtn.textContent = 'Laddar ner...';
+        downloadBtn.disabled = true;
+        
+        // Fetch the image with CORS
+        const response = await fetch(generatedImageUrl, {
+            mode: 'cors'
+        });
+        
+        if (!response.ok) {
+            throw new Error('Failed to fetch image');
+        }
+        
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `linkedin-bild-${Date.now()}.png`;
+        
+        // Generate a nice filename with timestamp
+        const timestamp = new Date().toISOString().slice(0, 10);
+        a.download = `castform-linkedin-${timestamp}.png`;
+        
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
         
-        const downloadBtn = event.target;
-        const originalText = downloadBtn.textContent;
+        // Clean up the blob URL
+        setTimeout(() => window.URL.revokeObjectURL(url), 100);
+        
         downloadBtn.textContent = '✅ Nedladdad!';
+        downloadBtn.style.background = '#4CAF50';
         
         setTimeout(() => {
             downloadBtn.textContent = originalText;
+            downloadBtn.style.background = '';
+            downloadBtn.disabled = false;
         }, 2000);
     } catch (error) {
         console.error('Error downloading image:', error);
-        alert('Kunde inte ladda ner bilden. Vänligen högerklicka och spara manuellt.');
+        downloadBtn.textContent = originalText;
+        downloadBtn.disabled = false;
+        
+        // Fallback: Open in new tab
+        alert('Direct download failed. Opening image in new tab - you can save it from there.');
+        window.open(generatedImageUrl, '_blank');
     }
+}
+
+// Function to use example prompts
+function useExample(exampleText) {
+    document.getElementById('image-prompt').value = exampleText;
+    document.getElementById('image-prompt').focus();
 }
 
 // Check API status on page load

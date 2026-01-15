@@ -68,12 +68,29 @@
                 <div class="section-icon">🎨</div>
                 <div>
                     <h2>Generera Bild för Inlägg</h2>
-                    <p class="section-description">Skapa en professionell bild som kompletterar ditt innehåll</p>
+                    <p class="section-description">Skapa en professionell bild som kompletterar ditt innehåll (16:9 format)</p>
                 </div>
             </div>
+            
+            <div class="prompt-tips">
+                <h4>💡 Tips för bra bildprompts:</h4>
+                <ul>
+                    <li><strong>Beskriv scenen:</strong> "Ett modernt IT-kontor med stora fönster"</li>
+                    <li><strong>Lägg till personer:</strong> "En grupp IT-konsulter som diskuterar vid en skärm"</li>
+                    <li><strong>Ange stil:</strong> "Professionell fotostil, naturligt ljus, corporate aesthetic"</li>
+                    <li><strong>Undvik text i bilden:</strong> Logotyper och text fungerar inte bra</li>
+                </ul>
+                <div class="example-prompts">
+                    <p><strong>Exempel:</strong></p>
+                    <button class="example-btn" onclick="useExample('Ett modernt svenskt IT-kontor med öppet kontorslandskap, unga IT-konsulter som samarbetar vid datorer, naturligt ljus genom stora fönster, professionell corporate fotografi')">📊 IT-kontor</button>
+                    <button class="example-btn" onclick="useExample('En IT-specialist som arbetar med molntjänster och servrar, blå digital teknologi-bakgrund, futuristisk och professionell miljö, high-tech aesthetic')">☁️ Cloud/Tech</button>
+                    <button class="example-btn" onclick="useExample('Ett professionellt möte med IT-rekryterare och kandidat som skakar hand, moderna kontorsmiljö, vänlig och professionell atmosfär, skandinavisk design')">🤝 Rekrytering</button>
+                </div>
+            </div>
+            
             <div class="input-group">
                 <label for="image-prompt">Beskriv bilden du vill ha</label>
-                <textarea id="image-prompt" rows="3" placeholder="t.ex., Ett modernt svenskt IT-kontor med konsulter som samarbetar vid ett whiteboardmöte"></textarea>
+                <textarea id="image-prompt" rows="4" placeholder="t.ex., Ett modernt svenskt IT-kontor med konsulter som samarbetar vid ett whiteboardmöte, naturligt ljus, professionell corporate fotografi"></textarea>
             </div>
             <button class="btn-primary btn-secondary-style" onclick="generateImage()" id="generate-image-btn">
                 <span class="btn-text">Generera Bild</span>

@@ -353,6 +353,12 @@ textarea {
     max-width: 100%;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.02);
 }
 
 /* Status Messages */
@@ -473,6 +479,64 @@ textarea {
     }
 }
 
+/* Prompt Tips Styling */
+.prompt-tips {
+    background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+    border: 2px solid #c5dbf5;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.prompt-tips h4 {
+    color: #0052FF;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+}
+
+.prompt-tips ul {
+    margin: 12px 0;
+    padding-left: 20px;
+    color: #444;
+}
+
+.prompt-tips li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.example-prompts {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #c5dbf5;
+}
+
+.example-prompts p {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+}
+
+.example-btn {
+    background: white;
+    border: 2px solid #0052FF;
+    color: #0052FF;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 5px 5px 5px 0;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.example-btn:hover {
+    background: #0052FF;
+    color: white;
+    transform: translateY(-1px);
+}
+
 /* Print Styles */
 @media print {
     body {
@@ -482,7 +546,8 @@ textarea {
     .config-section,
     .btn-primary,
     .btn-secondary,
-    .btn-copy {
+    .btn-copy,
+    .prompt-tips {
         display: none;
     }
 }
