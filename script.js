@@ -6,24 +6,29 @@ const API_BASE_URL = window.location.hostname === 'localhost' || window.location
 // Check API Status
 async function checkAPIStatus() {
     const statusEl = document.getElementById('api-status');
-    statusEl.textContent = 'Checking...';
+    const statusDot = document.getElementById('status-dot');
+    statusEl.textContent = 'Kontrollerar...';
     statusEl.className = 'status-message';
+    statusDot.className = 'status-dot';
     
     try {
         const response = await fetch(`${API_BASE_URL}/api/health`);
         const data = await response.json();
         
         if (response.ok) {
-            statusEl.textContent = '✅ API Connected Successfully!';
+            statusEl.textContent = 'Ansluten och redo!';
             statusEl.className = 'status-message success';
+            statusDot.className = 'status-dot connected';
         } else {
-            statusEl.textContent = '❌ API Error';
+            statusEl.textContent = 'API-fel';
             statusEl.className = 'status-message error';
+            statusDot.className = 'status-dot error';
         }
     } catch (error) {
         console.error('API Status Error:', error);
-        statusEl.textContent = '❌ Cannot reach API. Is the backend running?';
+        statusEl.textContent = 'Kan inte nå API-servern';
         statusEl.className = 'status-message error';
+        statusDot.className = 'status-dot error';
     }
     
     setTimeout(() => {

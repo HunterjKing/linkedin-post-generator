@@ -1,37 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Castform AI - LinkedIn Post Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
             <div class="logo-container">
-                <h1>Castform AI</h1>
-                <p class="subtitle">LinkedIn Post Generator</p>
+                <div class="logo-text">
+                    <h1>Castform AI</h1>
+                    <div class="logo-badge">POWERED BY AI</div>
+                </div>
+                <p class="subtitle">Professional LinkedIn Content Generator</p>
+                <p class="tagline">Skapa engagerande inlägg på sekunder</p>
             </div>
         </header>
 
         <!-- API Status Section -->
-        <section class="config-section">
-            <h2>API Status</h2>
-            <p class="api-info">Din API är säkert konfigurerad på servern. Inga nycklar behövs här.</p>
-            <button class="btn-secondary" onclick="checkAPIStatus()">Check API Status</button>
+        <section class="config-section status-section">
+            <div class="status-indicator">
+                <div class="status-dot" id="status-dot"></div>
+                <div>
+                    <h2>System Status</h2>
+                    <p class="api-info">Din API är säkert konfigurerad på servern</p>
+                </div>
+            </div>
+            <button class="btn-secondary btn-small" onclick="checkAPIStatus()">Kontrollera anslutning</button>
             <span id="api-status" class="status-message"></span>
         </section>
 
         <!-- Post Generator Section -->
-        <section class="generator-section">
-            <h2>Generera LinkedIn-inlägg</h2>
+        <section class="generator-section primary-section">
+            <div class="section-header">
+                <div class="section-icon">✍️</div>
+                <div>
+                    <h2>Generera LinkedIn-inlägg</h2>
+                    <p class="section-description">Skapa professionellt innehåll optimerat för IT-rekrytering</p>
+                </div>
+            </div>
             <div class="input-group">
-                <label for="post-topic">Skriv ditt ämne:</label>
-                <input type="text" id="post-topic" placeholder="t.ex., Framtiden för IT-rekrytering med AI">
+                <label for="post-topic">Ämne för ditt inlägg</label>
+                <input type="text" id="post-topic" placeholder="t.ex., Bristen på Azure-specialister i Sverige 2026">
             </div>
             <button class="btn-primary" onclick="generatePost()" id="generate-post-btn">
-                Generera Inlägg
+                <span class="btn-text">Generera Inlägg</span>
+                <span class="btn-arrow">→</span>
             </button>
             
             <div id="post-output" class="output-box hidden">
@@ -44,14 +63,21 @@
         </section>
 
         <!-- Image Generator Section -->
-        <section class="generator-section">
-            <h2>Generera Bild för Inlägg</h2>
-            <div class="input-group">
-                <label for="image-prompt">Beskriv bilden du vill ha:</label>
-                <textarea id="image-prompt" rows="3" placeholder="t.ex., Ett modernt IT-kontor med människor som samarbetar kring en skärm"></textarea>
+        <section class="generator-section secondary-section">
+            <div class="section-header">
+                <div class="section-icon">🎨</div>
+                <div>
+                    <h2>Generera Bild för Inlägg</h2>
+                    <p class="section-description">Skapa en professionell bild som kompletterar ditt innehåll</p>
+                </div>
             </div>
-            <button class="btn-primary" onclick="generateImage()" id="generate-image-btn">
-                Generera Bild
+            <div class="input-group">
+                <label for="image-prompt">Beskriv bilden du vill ha</label>
+                <textarea id="image-prompt" rows="3" placeholder="t.ex., Ett modernt svenskt IT-kontor med konsulter som samarbetar vid ett whiteboardmöte"></textarea>
+            </div>
+            <button class="btn-primary btn-secondary-style" onclick="generateImage()" id="generate-image-btn">
+                <span class="btn-text">Generera Bild</span>
+                <span class="btn-arrow">→</span>
             </button>
             
             <div id="image-output" class="output-box hidden">

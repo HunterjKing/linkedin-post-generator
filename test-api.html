@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>Quick API Test</h1>
+    <button onclick="testHealth()">Test Health Endpoint</button>
+    <button onclick="testPost()">Test Post Generation</button>
+    <pre id="result"></pre>
+
+    <script>
+        const API_URL = 'https://dry-cloud-e506.contact-74b.workers.dev';
+        
+        async function testHealth() {
+            document.getElementById('result').textContent = 'Testing...';
+            try {
+                const response = await fetch(`${API_URL}/api/health`);
+                const data = await response.json();
+                document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('result').textContent = 'ERROR: ' + error.message;
+            }
+        }
+        
+        async function testPost() {
+            document.getElementById('result').textContent = 'Testing...';
+            try {
+                const response = await fetch(`${API_URL}/api/generate-post`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ topic: 'Test topic' })
+                });
+                const data = await response.json();
+                document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('result').textContent = 'ERROR: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
+
