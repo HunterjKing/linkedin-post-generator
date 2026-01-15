@@ -1,0 +1,30 @@
+# Environment variables - NEVER commit these!
+.env
+.env.local
+.env.production
+
+# Node modules
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# Build outputs
+dist/
+build/
+.cache/
+
+# Cloudflare
+.wrangler/
+wrangler.toml.backup
+

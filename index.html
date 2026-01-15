@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castform AI - LinkedIn Post Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Castform AI</h1>
+            <p class="subtitle">LinkedIn Post Generator</p>
+        </header>
+
+        <!-- API Status Section -->
+        <section class="config-section">
+            <h2>🔌 API Status</h2>
+            <p class="api-info">Din API är säkert konfigurerad på servern. Inga nycklar behövs här! 🔒</p>
+            <button class="btn-secondary" onclick="checkAPIStatus()">Check API Status</button>
+            <span id="api-status" class="status-message"></span>
+        </section>
+
+        <!-- Post Generator Section -->
+        <section class="generator-section">
+            <h2>✍️ Generera LinkedIn-inlägg</h2>
+            <div class="input-group">
+                <label for="post-topic">Skriv ditt ämne:</label>
+                <input type="text" id="post-topic" placeholder="t.ex., Framtiden för IT-rekrytering med AI">
+            </div>
+            <button class="btn-primary" onclick="generatePost()" id="generate-post-btn">
+                Generera Inlägg
+            </button>
+            
+            <div id="post-output" class="output-box hidden">
+                <div class="output-header">
+                    <h3>Ditt LinkedIn-inlägg</h3>
+                    <button class="btn-copy" onclick="copyPost()">📋 Kopiera Inlägg</button>
+                </div>
+                <div id="post-content" class="post-content"></div>
+            </div>
+        </section>
+
+        <!-- Image Generator Section -->
+        <section class="generator-section">
+            <h2>🎨 Generera Bild för Inlägg</h2>
+            <div class="input-group">
+                <label for="image-prompt">Beskriv bilden du vill ha:</label>
+                <textarea id="image-prompt" rows="3" placeholder="t.ex., Ett modernt IT-kontor med människor som samarbetar kring en skärm"></textarea>
+            </div>
+            <button class="btn-primary" onclick="generateImage()" id="generate-image-btn">
+                Generera Bild
+            </button>
+            
+            <div id="image-output" class="output-box hidden">
+                <div class="output-header">
+                    <h3>Din Genererade Bild</h3>
+                    <button class="btn-copy" onclick="downloadImage()">💾 Ladda Ner Bild</button>
+                </div>
+                <div id="image-container" class="image-container"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

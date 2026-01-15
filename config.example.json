@@ -1,0 +1,7 @@
+{
+  "note": "This is an example config file. You don't need to use this - just enter your API keys directly in the web interface.",
+  "openai_api_key": "sk-your-openai-api-key-here",
+  "openai_org_id": "org-your-org-id-here-optional",
+  "kyyy_api_key": "your-kyyy-ai-api-key-here"
+}
+
